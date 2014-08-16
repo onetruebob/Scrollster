@@ -49,11 +49,13 @@ define(function(require, exports, module) {
             this.skewX = progress * this.scaleX;
             this.skewY = progress * this.scaleY;
             this.skewZ = progress * this.scaleZ;
+
         } else if (scrollPosition <= this.scrollStart) {
             this.skewX = 0;
             this.skewY = 0;
             this.skewZ = 0;
         } else if (scrollPosition >= this.scrollStop) {
+
             this.skewX = this.scaleX;
             this.skewY = this.scaleY;
             this.skewZ = this.scaleZ;
