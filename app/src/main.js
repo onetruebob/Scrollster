@@ -16,119 +16,300 @@ define(function(require, exports, module) {
     var director = new Director();
 
     var actorDescriptions = {
-        'Demo Actor': {
+        'Bob Name': {
+            type: 'html',
+            content: 'BOB OWEN',
+            properties: {
+                backfaceVisibility: 'visible',
+                fontSize: '6.5em',
+                textAlign: 'center'
+            },
+            size: [700, 140],
+            position: [1440, 538],
+            classes: ['z2']
+        },
+        'Tom Name': {
+            type: 'html',
+            content: 'TOM O\'CONNELL',
+            properties: {
+                backfaceVisibility: 'visible',
+                fontSize: '6.5em',
+                textAlign: 'center'
+            },
+            size: [840, 140],
+            position: [480, 538],
+            classes: ['z2']
+        },
+        'Slide One': {
             type: 'image',
             content: 'content/images/scrollster-name-main.001.jpg',
             properties: {
                 backfaceVisibility: 'visible'
             },
             size: [1920, 1080],
-            position: [150, 150],
+            position: [960, -1080],
+            classes: ['z1']
+        },
+        'Slide Two': {
+            type: 'html',
+            content: 'SCROLL ANIMATION COMPONENT?',
+            properties: {
+                backfaceVisibility: 'visible',
+                fontSize: '6.5em',
+                textAlign: 'center'
+            },
+            size: [1920, 1080],
+            position: [480, 2 * 1080],
             classes: ['z2']
         },
-        'Demo Two': {
-            type: 'html',
-            content: 'Hi!',
-            size: [100, 100],
-            position: [800, 200],
-            classes: ['z1'],
+        'Scrollarama': {
+            type: 'image',
+            content: 'content/images/scrollarama.png',
             properties: {
-                fontSize: '2em',
-                padding: '.5em',
-                backfaceVisibility: 'visible',
-                backgroundColor: 'blue'
-            }
+                backfaceVisibility: 'visible'
+            },
+            size: [960, 240],
+            position: [960, 1540],
+            classes: ['z1']
+        },
+        'Scrollmagic': {
+            type: 'image',
+            content: 'content/images/scrollmagic.png',
+            properties: {
+                backfaceVisibility: 'visible'
+            },
+            size: [960, 340],
+            position: [960, 1540],
+            classes: ['z1']
         }
     };
 
     var actionDescriptions = [
         {
-            actor: 'Demo Actor',
+            actor: 'Bob Name',
             start: 0,
             stop: 1000,
-            type: 'rotateTo',
-            properties: {
-                axis: 'y',
-                angleInDegrees: 720,
-                curve: 'easeOutBounce'
-            }
-        },
-        {
-            actor: 'Demo Actor',
-            start: 0,
-            stop: 600,
             type: 'position',
             properties: {
-                scaleX: 0,
-                scaleY: -1
+                scaleX: +1,
+                scaleY: 0
             }
         },
         {
-            actor: 'Demo Actor',
-            start: 600,
+            actor: 'Tom Name',
+            start: 0,
             stop: 1000,
-            type: 'moveTo',
+            type: 'position',
             properties: {
-                location: [720, 450],
-                curve: 'easeOutBounce'
+                scaleX: -1,
+                scaleY: 0
             }
         },
+        // {
+        //     actor: 'Slide One',
+        //     start: 1000,
+        //     stop: 2000,
+        //     type: 'scale',
+        //     properties: {
+        //         changeRatioX: 0,
+        //         changeRatioY: 0,
+        //         curve: 'easeIn'
+        //     }
+        // },
+        // {
+        //     actor: 'Slide One',
+        //     start: 1000,
+        //     stop: 2000,
+        //     type: 'rotateTo',
+        //     properties: {
+        //         axis: 'y',
+        //         angleInDegrees: 720,
+        //         curve: 'easeIn'
+        //     }
+        // },
         {
-            actor: 'Demo Actor',
+            actor: 'Slide One',
             start: 0,
             stop: 1000,
             type: 'opacity',
             properties: {}
         },
         {
-            actor: 'Demo Two',
-            start: 1000,
-            stop: 2000,
-            type: 'scale',
+            actor: 'Slide One',
+            start: 0,
+            stop: 1,
+            type: 'moveTo',
             properties: {
-                changeRatioX: 4,
-                changeRatioY: 4,
+                location: [960, 540],
+                curve: 'easeOutBounce'
+            }
+        },
+        {
+            actor: 'Slide One',
+            start: 1001,
+            stop: 2000,
+            type: 'position',
+            properties: {
+                scaleX: 0,
+                scaleY: 1.2
+            }
+        },
+        {
+            actor: 'Slide Two',
+            start: 1001,
+            stop: 2000,
+            type: 'moveTo',
+            properties: {
+                location: [960, 1080],
+                curve: 'easeOutBounce'
+            }
+        },
+        {
+            actor: 'Slide Two',
+            start: 2001,
+            stop: 3000,
+            type: 'moveTo',
+            properties: {
+                location: [960, 540],
                 curve: 'easeOut'
             }
         },
         {
-            actor: 'Demo Two',
-            start: 1000,
-            stop: 2000,
+            actor: 'Scrollmagic',
+            start: 2001,
+            stop: 3000,
             type: 'rotateTo',
             properties: {
                 axis: 'y',
-                angleInDegrees: 540
+                angleInDegrees: 1440,
+                curve: 'easeOutBounce'
             }
         },
         {
-            actor: 'Demo Two',
-            start: 1000,
-            stop: 1600,
-            type: 'position',
-            properties: {
-                scaleX: 0,
-                scaleY: -1
-            }
-        },
-        {
-            actor: 'Demo Two',
-            start: 1600,
-            stop: 2000,
+            actor: 'Scrollarama',
+            start: 2001,
+            stop: 3000,
             type: 'moveTo',
             properties: {
-                location: [720, 450]
+                location: [960, 540],
             }
         },
         {
-            actor: 'Demo Two',
-            start: 1000,
-            stop: 1200,
-            type: 'opacity',
+            actor: 'Scrollmagic',
+            start: 2001,
+            stop: 3000,
+            type: 'moveTo',
             properties: {
-                curve: 'linear'
+                location: [960, 540],
             }
-        }
+        },
+        {
+            actor: 'Scrollarama',
+            start: 3201,
+            stop: 4000,
+            type: 'moveTo',
+            properties: {
+                location: [960, 440],
+                curve: 'easeOutBounce'
+            }
+        },
+        {
+            actor: 'Scrollmagic',
+            start: 3201,
+            stop: 4000,
+            type: 'moveTo',
+            properties: {
+                location: [960, 840],
+                curve: 'easeOutBounce'
+            }
+        },
+        // {
+        //     actor: 'Slide One',
+        //     start: 0,
+        //     stop: 1000,
+        //     type: 'rotateTo',
+        //     properties: {
+        //         axis: 'y',
+        //         angleInDegrees: 720,
+        //         curve: 'easeOutBounce'
+        //     }
+        // },
+        // {
+        //     actor: 'Slide One',
+        //     start: 0,
+        //     stop: 600,
+        //     type: 'position',
+        //     properties: {
+        //         scaleX: 0,
+        //         scaleY: -1
+        //     }
+        // },
+        // {
+        //     actor: 'Slide One',
+        //     start: 600,
+        //     stop: 1000,
+        //     type: 'moveTo',
+        //     properties: {
+        //         location: [720, 450],
+        //         curve: 'easeOutBounce'
+        //     }
+        // },
+        // {
+        //     actor: 'Slide One',
+        //     start: 0,
+        //     stop: 1000,
+        //     type: 'opacity',
+        //     properties: {}
+        // },
+        // {
+        //     actor: 'Demo Two',
+        //     start: 1000,
+        //     stop: 2000,
+        //     type: 'scale',
+        //     properties: {
+        //         changeRatioX: 4,
+        //         changeRatioY: 4,
+        //         curve: 'easeOut'
+        //     }
+        // },
+        // {
+        //     actor: 'Demo Two',
+        //     start: 1000,
+        //     stop: 2000,
+        //     type: 'rotateTo',
+        //     properties: {
+        //         axis: 'y',
+        //         angleInDegrees: 540
+        //     }
+        // },
+        // {
+        //     actor: 'Demo Two',
+        //     start: 1000,
+        //     stop: 1600,
+        //     type: 'position',
+        //     properties: {
+        //         scaleX: 0,
+        //         scaleY: -1
+        //     }
+        // },
+        // {
+        //     actor: 'Demo Two',
+        //     start: 1600,
+        //     stop: 2000,
+        //     type: 'moveTo',
+        //     properties: {
+        //         location: [720, 450]
+        //     }
+        // },
+        // {
+        //     actor: 'Demo Two',
+        //     start: 1000,
+        //     stop: 1200,
+        //     type: 'opacity',
+        //     properties: {
+        //         curve: 'linear'
+        //     }
+        // }
     ];
 
     director.populateStage(stageView, actorDescriptions, actionDescriptions);

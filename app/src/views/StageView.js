@@ -24,7 +24,8 @@ define(function(require, exports, module) {
         _setupScrollRecieverSurface.call(this);
         _setupScrollInfoSurface.call(this);
         _handleScroll.call(this);
-        _setupArrowKeyBreakpoints.call(this, [300, 500, 700, 900, 1000]);
+
+        _setupArrowKeyBreakpoints.call(this, [1000, 2000, 3000, 4000], 1, 50);
     }
 
     StageView.DEFAULT_OPTIONS = {

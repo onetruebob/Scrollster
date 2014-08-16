@@ -4,6 +4,7 @@ html {
 
 body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  font-weight: lighter;
   color: rgb(83,83,83);
   background-color: rgb(220,220,220);
 }
