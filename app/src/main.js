@@ -191,7 +191,7 @@ define(function(require, exports, module) {
             stop: 3000,
             type: 'moveTo',
             properties: {
-                location: [960, 540],
+                location: [960, 540]
             }
         },
         {
@@ -200,7 +200,7 @@ define(function(require, exports, module) {
             stop: 3000,
             type: 'moveTo',
             properties: {
-                location: [960, 540],
+                location: [960, 540]
             }
         },
         {
@@ -222,7 +222,7 @@ define(function(require, exports, module) {
                 location: [960, 840],
                 curve: 'easeOutBounce'
             }
-        },
+        }
         // {
         //     actor: 'Slide One',
         //     start: 0,
