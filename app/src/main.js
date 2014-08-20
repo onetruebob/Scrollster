@@ -173,7 +173,7 @@ define(function(require, exports, module) {
         'How It Works': {
             type: 'html',
             content: 'HOW IT WORKS',
-            zPosition: 100,
+            zPosition: 101,
             properties: {
                 backfaceVisibility: 'visible',
                 fontSize: '6.5em',
@@ -252,6 +252,86 @@ define(function(require, exports, module) {
             position: ['150%', '50%'],
             classes: ['z2'],
             opacity: 1
+        },
+        'Position': {
+            type: 'html',
+            content: 'Position',
+            zPosition: 100,
+            size: [400, 400],
+            position: ['50%', '50%'],
+            classes: ['z2'],
+            opacity: 0,
+            properties: {
+                backfaceVisibility: 'visible',
+                fontSize: '6.5em',
+                textAlign: 'center',
+                backgroundColor: 'rgb(240,240,240)',
+                paddingTop: '1.2em'
+            }
+        },
+        'Move To': {
+            type: 'html',
+            content: 'Move To',
+            zPosition: 100,
+            size: [400, 400],
+            position: ['50%', '50%'],
+            classes: ['z2'],
+            opacity: 0,
+            properties: {
+                backfaceVisibility: 'visible',
+                fontSize: '6.5em',
+                textAlign: 'center',
+                backgroundColor: 'rgb(240,240,240)',
+                paddingTop: '1.2em'
+            }
+        },
+        'Rotate To': {
+            type: 'html',
+            content: 'Rotate To',
+            zPosition: 100,
+            size: [400, 400],
+            position: ['50%', '50%'],
+            classes: ['z2'],
+            opacity: 0,
+            properties: {
+                backfaceVisibility: 'visible',
+                fontSize: '6.5em',
+                textAlign: 'center',
+                backgroundColor: 'rgb(240,240,240)',
+                paddingTop: '1.2em'
+            }
+        },
+        'Scale': {
+            type: 'html',
+            content: 'Scale',
+            zPosition: 100,
+            size: [400, 400],
+            position: ['50%', '50%'],
+            classes: ['z2'],
+            opacity: 0,
+            properties: {
+                backfaceVisibility: 'visible',
+                fontSize: '6.5em',
+                textAlign: 'center',
+                backgroundColor: 'rgb(240,240,240)',
+                paddingTop: '1.2em'
+            }
+        },
+        'Skew': {
+            type: 'html',
+            content: 'Skew',
+            zPosition: 100,
+            size: [400, 400],
+            position: ['50%', '50%'],
+            classes: ['z2'],
+            opacity: 0,
+            properties: {
+                backfaceVisibility: 'visible',
+                fontSize: '6.5em',
+                textAlign: 'center',
+                backgroundColor: 'rgb(240,240,240)',
+                paddingTop: '1.2em'
+            }
         },
     };
 
@@ -645,6 +725,159 @@ define(function(require, exports, module) {
             properties: {
                 location: ['50%', '150%'],
                 curve: 'linear'
+            }
+        },
+        {
+            actor: 'Position',
+            start: 15000,
+            stop: 16000,
+            type: 'opacity',
+            properties: {
+                finalOpacity: 1
+            }
+        },
+        {
+            actor: 'Position',
+            start: 16001,
+            stop: 17000,
+            type: 'position',
+            properties: {
+                scaleX: 0.5,
+                scaleY: 0,
+            }
+        },
+        {
+            actor: 'Position',
+            start: 17001,
+            stop: 18000,
+            type: 'position',
+            properties: {
+                scaleX: 0,
+                scaleY: -2,
+            }
+        },
+        {
+            actor: 'Move To',
+            start: 17001,
+            stop: 18000,
+            type: 'opacity',
+            properties: {
+                finalOpacity: 1
+            }
+        },
+        {
+            actor: 'Move To',
+            start: 18001,
+            stop: 19000,
+            type: 'moveTo',
+            properties: {
+                location: ['25%', '25%'],
+                scaleY: 0,
+            }
+        },
+        {
+            actor: 'Move To',
+            start: 19001,
+            stop: 20000,
+            type: 'position',
+            properties: {
+                scaleX: 0,
+                scaleY: -3,
+            }
+        },
+        {
+            actor: 'Rotate To',
+            start: 19001,
+            stop: 20000,
+            type: 'opacity',
+            properties: {
+                finalOpacity: 1
+            }
+        },
+        {
+            actor: 'Rotate To',
+            start: 20001,
+            stop: 21000,
+            type: 'rotateTo',
+            properties: {
+                axis: 'y',
+                angleInDegrees: 180
+            }
+        },
+        {
+            actor: 'Rotate To',
+            start: 21001,
+            stop: 22000,
+            type: 'position',
+            properties: {
+                scaleX: 0,
+                scaleY: -2,
+            }
+        },
+        {
+            actor: 'Scale',
+            start: 21001,
+            stop: 22000,
+            type: 'opacity',
+            properties: {
+                finalOpacity: 1
+            }
+        },
+        {
+            actor: 'Scale',
+            start: 22001,
+            stop: 23000,
+            type: 'scale',
+            properties: {
+                changeRatioX: 3,
+                changeRatioY: 3,
+            }
+        },
+        {
+            actor: 'Scale',
+            start: 23001,
+            stop: 24000,
+            type: 'position',
+            properties: {
+                scaleX: 0,
+                scaleY: -2,
+            }
+        },
+        {
+            actor: 'Skew',
+            start: 23001,
+            stop: 24000,
+            type: 'opacity',
+            properties: {
+                finalOpacity: 1
+            }
+        },
+        {
+            actor: 'Skew',
+            start: 24001,
+            stop: 25000,
+            type: 'skew',
+            properties: {
+                scaleZ: 0.75,
+            }
+        },
+        {
+            actor: 'Skew',
+            start: 25001,
+            stop: 26000,
+            type: 'position',
+            properties: {
+                scaleX: 0,
+                scaleY: -2,
+            }
+        },
+        {
+            actor: 'How It Works',
+            start: 25001,
+            stop: 26000,
+            type: 'moveTo',
+            properties: {
+                location: ['50%', '-10%']
             }
         },
         // {
