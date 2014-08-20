@@ -15,6 +15,36 @@ define(function(require, exports, module) {
     var stageView = new StageView();
     var director = new Director();
 
+    var actorExampleText = " \
+        <pre> \
+'Presenter Name': { \n\
+    type: 'html', \n\
+    content: 'BOB OWEN', \n\
+    properties: { \n\
+        backfaceVisibility: 'visible', \n\
+        fontSize: '6.5em', \n\
+        textAlign: 'center' \n\
+    }, \n\
+    size: [700, 140], \n\
+    position: ['75%', '50%'], \n\
+    classes: ['z2'] \n\
+}, \n\
+        </pre>";
+
+    var actionExampleText = " \
+<pre> \
+{ \n\
+    actor: 'Presenter Name', \n\
+    start: 7001, \n\
+    stop: 8000, \n\
+    type: 'rotateTo', \n\
+    properties: { \n\
+        axis: 'x', \n\
+        angleInDegrees: 720, \n\
+    } \n\
+}, \n\
+</pre>";
+
     var actorDescriptions = {
         'Bob Name': {
             type: 'html',
@@ -139,6 +169,89 @@ define(function(require, exports, module) {
             size: ['100%', 120],
             position: ['-150%', '70%'],
             classes: ['z2']
+        },
+        'How It Works': {
+            type: 'html',
+            content: 'HOW IT WORKS',
+            zPosition: 100,
+            properties: {
+                backfaceVisibility: 'visible',
+                fontSize: '6.5em',
+                textAlign: 'center'
+            },
+            size: ['100%', '100%'],
+            position: ['50%', '60%'],
+            classes: ['z2'],
+            opacity: 0
+        },
+        'Action': {
+            type: 'html',
+            content: 'Action',
+            zPosition: 100,
+            properties: {
+                backfaceVisibility: 'visible',
+                fontSize: '6.5em',
+                textAlign: 'center',
+                backgroundColor: 'rgb(83,83,83)',
+                paddingTop: '1.2em',
+                color: 'rgb(240,240,240)'
+            },
+            size: [400, 400],
+            position: ['70%', '50%'],
+            classes: ['z2'],
+            opacity: 0
+        },
+        'Actor': {
+            type: 'html',
+            content: 'Actor',
+            zPosition: 100,
+            size: [400, 400],
+            position: ['30%', '50%'],
+            classes: ['z2'],
+            opacity: 0,
+            properties: {
+                backfaceVisibility: 'visible',
+                fontSize: '6.5em',
+                textAlign: 'center',
+                backgroundColor: 'rgb(240,240,240)',
+                paddingTop: '1.2em'
+            }
+        },
+        'Actor Example': {
+            type: 'html',
+            content: actorExampleText,
+            zPosition: 100,
+            properties: {
+                backfaceVisibility: 'visible',
+                fontSize: '1.5em',
+                backgroundColor: 'black',
+                color: 'white',
+                padding : '1em',
+                paddingTop: '3.3em',
+                fontFamily: '"Lucida Console", Monaco, monospace'
+            },
+            size: [500, 500],
+            position: ['70%', '50%'],
+            classes: ['z2'],
+            opacity: 0
+        },
+        'Action Example': {
+            type: 'html',
+            content: actionExampleText,
+            zPosition: 100,
+            properties: {
+                backfaceVisibility: 'visible',
+                fontSize: '1.5em',
+                backgroundColor: 'white',
+                color: 'black',
+                padding : '1em',
+                paddingTop: '3.3em',
+                fontFamily: '"Lucida Console", Monaco, monospace'
+            },
+            size: [500, 500],
+            position: ['150%', '50%'],
+            classes: ['z2'],
+            opacity: 1
         },
     };
 
@@ -367,6 +480,171 @@ define(function(require, exports, module) {
             properties: {
                 location: ['50%', '130%'],
                 curve: 'easeIn'
+            }
+        },
+        {
+            actor: 'How It Works',
+            start: 8000,
+            stop: 9000,
+            type: 'opacity',
+            properties: {
+                finalOpacity: 1
+            }
+        },
+        {
+            actor: 'Actor',
+            start: 9000,
+            stop: 10000,
+            type: 'opacity',
+            properties: {
+                finalOpacity: 1
+            }
+        },
+        {
+            actor: 'Action',
+            start: 10000,
+            stop: 11000,
+            type: 'opacity',
+            properties: {
+                finalOpacity: 1
+            }
+        },
+        {
+            actor: 'Action',
+            start: 11000,
+            stop: 12000,
+            type: 'moveTo',
+            properties: {
+                location: ['150%', '50%'],
+                curve: 'linear'
+            }
+        },
+        {
+            actor: 'Actor Example',
+            start: 11000,
+            stop: 12000,
+            type: 'opacity',
+            properties: {
+                finalOpacity: 1
+            }
+        },
+        {
+            actor: 'Actor',
+            start: 12000,
+            stop: 12500,
+            type: 'moveTo',
+            properties: {
+                location: ['150%', '50%'],
+                curve: 'linear'
+            }
+        },
+        {
+            actor: 'Actor Example',
+            start: 12000,
+            stop: 12500,
+            type: 'moveTo',
+            properties: {
+                location: ['150%', '50%'],
+                curve: 'linear'
+            }
+        },
+        {
+            actor: 'Action',
+            start: 12500,
+            stop: 13000,
+            type: 'moveTo',
+            properties: {
+                location: ['30%', '50%'],
+                curve: 'easeOut'
+            }
+        },
+        {
+            actor: 'Action Example',
+            start: 12500,
+            stop: 13000,
+            type: 'moveTo',
+            properties: {
+                location: ['70%', '50%'],
+                curve: 'easeOut'
+            }
+        },
+        {
+            actor: 'Action Example',
+            start: 13000,
+            stop: 13500,
+            type: 'opacity',
+            properties: {
+                finalOpacity: 0
+            }
+        },
+        {
+            actor: 'Actor',
+            start: 13000,
+            stop: 13500,
+            type: 'moveTo',
+            properties: {
+                location: ['70%', '50%'],
+                curve: 'linear'
+            }
+        },
+        {
+            actor: 'Action',
+            start: 13500,
+            stop: 15000,
+            type: 'rotateTo',
+            properties: {
+                axis: 'z',
+                angleInDegrees: '1080'
+            }
+        },
+        {
+            actor: 'Actor',
+            start: 14000,
+            stop: 14500,
+            type: 'moveTo',
+            properties: {
+                location: ['50%', '50%'],
+                curve: 'linear'
+            }
+        },
+        {
+            actor: 'Action',
+            start: 14000,
+            stop: 14500,
+            type: 'moveTo',
+            properties: {
+                location: ['50%', '50%'],
+                curve: 'linear'
+            }
+        },
+        {
+            actor: 'Actor',
+            start: 14500,
+            stop: 15000,
+            type: 'rotateTo',
+            properties: {
+                axis: 'z',
+                angleInDegrees: '360'
+            }
+        },
+        {
+            actor: 'Actor',
+            start: 14500,
+            stop: 15000,
+            type: 'moveTo',
+            properties: {
+                location: ['50%', '150%'],
+                curve: 'linear'
+            }
+        },
+        {
+            actor: 'Action',
+            start: 14500,
+            stop: 15000,
+            type: 'moveTo',
+            properties: {
+                location: ['50%', '150%'],
+                curve: 'linear'
             }
         },
         // {
