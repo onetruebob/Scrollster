@@ -25,7 +25,7 @@ define(function(require, exports, module) {
                 textAlign: 'center'
             },
             size: [700, 140],
-            position: [1440, 538],
+            position: ['75%', '50%'],
             classes: ['z2']
         },
         'Tom Name': {
@@ -37,7 +37,7 @@ define(function(require, exports, module) {
                 textAlign: 'center'
             },
             size: [840, 140],
-            position: [480, 538],
+            position: ['25%', '50%'],
             classes: ['z2']
         },
         'Slide One': {
@@ -46,20 +46,23 @@ define(function(require, exports, module) {
             properties: {
                 backfaceVisibility: 'visible'
             },
-            size: [1920, 1080],
-            position: [960, -1080],
-            classes: ['z1']
+            size: ['100%', '100%'],
+            position: ['50%', '50%'],
+            classes: ['z2'],
+            zPosition: 1,
+            opacity: 0
         },
         'Slide Two': {
             type: 'html',
             content: 'SCROLL ANIMATION COMPONENT?',
+            zPosition: 100,
             properties: {
                 backfaceVisibility: 'visible',
                 fontSize: '6.5em',
                 textAlign: 'center'
             },
-            size: [1920, 1080],
-            position: [480, 2 * 1080],
+            size: ['100%', '100%'],
+            position: ['50%', 2 * 1080],
             classes: ['z2']
         },
         'Scrollarama': {
@@ -69,7 +72,7 @@ define(function(require, exports, module) {
                 backfaceVisibility: 'visible'
             },
             size: [960, 240],
-            position: [960, 1540],
+            position: ['50%', '150%'],
             classes: ['z1']
         },
         'Scrollmagic': {
@@ -79,9 +82,64 @@ define(function(require, exports, module) {
                 backfaceVisibility: 'visible'
             },
             size: [960, 340],
-            position: [960, 1540],
+            position: ['50%', '150%'],
             classes: ['z1']
-        }
+        },
+        'Why Famous': {
+            type: 'html',
+            content: 'WHY FAMOUS?',
+            zPosition: 101,
+            properties: {
+                backfaceVisibility: 'visible',
+                fontSize: '6.5em',
+                textAlign: 'center'
+            },
+            size: ['100%', '100%'],
+            position: ['-150%', '60%'],
+            classes: ['z2']
+        },
+        'Speed': {
+            type: 'html',
+            content: 'Speed',
+            zPosition: 100,
+            properties: {
+                backfaceVisibility: 'visible',
+                fontSize: '6.5em',
+                textAlign: 'center',
+                backgroundColor: 'rgb(240,240,240)'
+            },
+            size: ['100%', 120],
+            position: ['-150%', '30%'],
+            classes: ['z2']
+        },
+        'Easing': {
+            type: 'html',
+            content: 'Easing / Physics',
+            zPosition: 100,
+            properties: {
+                backfaceVisibility: 'visible',
+                fontSize: '6.5em',
+                textAlign: 'center',
+                backgroundColor: 'rgb(240,240,240)'
+            },
+            size: ['100%', 120],
+            position: ['-150%', '50%'],
+            classes: ['z2']
+        },
+        '3D': {
+            type: 'html',
+            content: '3D Transformations',
+            zPosition: 100,
+            properties: {
+                backfaceVisibility: 'visible',
+                fontSize: '6.5em',
+                textAlign: 'center',
+                backgroundColor: 'rgb(240,240,240)'
+            },
+            size: ['100%', 120],
+            position: ['-150%', '70%'],
+            classes: ['z2']
+        },
     };
 
     var actionDescriptions = [
@@ -105,28 +163,6 @@ define(function(require, exports, module) {
                 scaleY: 0
             }
         },
-        // {
-        //     actor: 'Slide One',
-        //     start: 1000,
-        //     stop: 2000,
-        //     type: 'scale',
-        //     properties: {
-        //         changeRatioX: 0,
-        //         changeRatioY: 0,
-        //         curve: 'easeIn'
-        //     }
-        // },
-        // {
-        //     actor: 'Slide One',
-        //     start: 1000,
-        //     stop: 2000,
-        //     type: 'rotateTo',
-        //     properties: {
-        //         axis: 'y',
-        //         angleInDegrees: 720,
-        //         curve: 'easeIn'
-        //     }
-        // },
         {
             actor: 'Slide One',
             start: 0,
@@ -140,7 +176,7 @@ define(function(require, exports, module) {
             stop: 1,
             type: 'moveTo',
             properties: {
-                location: [960, 540],
+                location: ['50%', '50%'],
                 curve: 'easeOutBounce'
             }
         },
@@ -160,7 +196,7 @@ define(function(require, exports, module) {
             stop: 2000,
             type: 'moveTo',
             properties: {
-                location: [960, 1080],
+                location: ['50%', '100%'],
                 curve: 'easeOutBounce'
             }
         },
@@ -170,59 +206,169 @@ define(function(require, exports, module) {
             stop: 3000,
             type: 'moveTo',
             properties: {
-                location: [960, 540],
+                location: ['50%', '60%'],
+                curve: 'easeOut'
+            }
+        },
+        {
+            actor: 'Scrollarama',
+            start: 2001,
+            stop: 3000,
+            type: 'moveTo',
+            properties: {
+                location: ['50%', '50%']
+            }
+        },
+        {
+            actor: 'Scrollmagic',
+            start: 2001,
+            stop: 3000,
+            type: 'moveTo',
+            properties: {
+                location: ['50%', '50%']
+            }
+        },
+        {
+            actor: 'Scrollarama',
+            start: 3201,
+            stop: 4000,
+            type: 'moveTo',
+            properties: {
+                location: ['50%', '35%'],
+                curve: 'easeOutBounce'
+            }
+        },
+        {
+            actor: 'Scrollmagic',
+            start: 3201,
+            stop: 4000,
+            type: 'moveTo',
+            properties: {
+                location: ['50%', '75%'],
+                curve: 'easeOutBounce'
+            }
+        },
+        {
+            actor: 'Slide Two',
+            start: 4001,
+            stop: 5000,
+            type: 'moveTo',
+            properties: {
+                location: ['150%', '60%'],
+                curve: 'easeOut'
+            }
+        },
+        {
+            actor: 'Scrollarama',
+            start: 4001,
+            stop: 5000,
+            type: 'moveTo',
+            properties: {
+                location: ['150%', '75%'],
                 curve: 'easeOut'
             }
         },
         {
             actor: 'Scrollmagic',
-            start: 2001,
-            stop: 3000,
+            start: 4001,
+            stop: 5000,
+            type: 'moveTo',
+            properties: {
+                location: ['150%', '35%'],
+                curve: 'easeOut'
+            }
+        },
+        {
+            actor: 'Why Famous',
+            start: 4001,
+            stop: 5000,
+            type: 'moveTo',
+            properties: {
+                location: ['50%', '60%'],
+                curve: 'easeIn'
+            }
+        },
+        {
+            actor: 'Speed',
+            start: 5001,
+            stop: 6000,
+            type: 'moveTo',
+            properties: {
+                location: ['50%', '30%'],
+                curve: 'easeIn'
+            }
+        },
+        {
+            actor: 'Easing',
+            start: 6001,
+            stop: 7000,
+            type: 'moveTo',
+            properties: {
+                location: ['50%', '50%'],
+                curve: 'spring'
+            }
+        },
+        {
+            actor: '3D',
+            start: 7001,
+            stop: 8000,
+            type: 'moveTo',
+            properties: {
+                location: ['50%', '70%'],
+                curve: 'linear'
+            }
+        },
+        {
+            actor: '3D',
+            start: 7001,
+            stop: 8000,
             type: 'rotateTo',
             properties: {
-                axis: 'y',
-                angleInDegrees: 1440,
-                curve: 'easeOutBounce'
+                axis: 'x',
+                angleInDegrees: 720,
+                curve: 'linear'
             }
         },
         {
-            actor: 'Scrollarama',
-            start: 2001,
-            stop: 3000,
+            actor: 'Why Famous',
+            start: 8001,
+            stop: 9000,
             type: 'moveTo',
             properties: {
-                location: [960, 540]
+                location: ['50%', '150%'],
+                curve: 'linear'
             }
         },
         {
-            actor: 'Scrollmagic',
-            start: 2001,
-            stop: 3000,
+            actor: 'Speed',
+            start: 8001,
+            stop: 9000,
             type: 'moveTo',
             properties: {
-                location: [960, 540]
+                location: ['50%', '130%'],
+                curve: 'easeIn'
             }
         },
         {
-            actor: 'Scrollarama',
-            start: 3201,
-            stop: 4000,
+            actor: 'Easing',
+            start: 8201,
+            stop: 9000,
             type: 'moveTo',
             properties: {
-                location: [960, 440],
-                curve: 'easeOutBounce'
+                location: ['50%', '130%'],
+                curve: 'easeIn'
             }
         },
         {
-            actor: 'Scrollmagic',
-            start: 3201,
-            stop: 4000,
+            actor: '3D',
+            start: 8401,
+            stop: 9000,
             type: 'moveTo',
             properties: {
-                location: [960, 840],
-                curve: 'easeOutBounce'
+                location: ['50%', '130%'],
+                curve: 'easeIn'
             }
-        }
+        },
         // {
         //     actor: 'Slide One',
         //     start: 0,
