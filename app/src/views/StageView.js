@@ -22,7 +22,6 @@ define(function(require, exports, module) {
         this.worldScrollValue = 0;
 
         _setupScrollRecieverSurface.call(this);
-        _setupScrollInfoSurface.call(this);
         _handleScroll.call(this);
 
         _setupArrowKeyBreakpoints.call(this, [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 14000, 15000, 16000, 17000, 18000, 19000, 20000, 21000, 22000, 23000, 24000, 25000, 26000, 27000], 1, 50);
@@ -49,19 +48,6 @@ define(function(require, exports, module) {
         this.add(this.scrollRecieverSurface);
     }
 
-    function _setupScrollInfoSurface() {
-        this.scrollInfo = new Surface({
-            size: [200, 200],
-            content: 'Scroll Value: ',
-            properties: {
-                backgroundColor: 'white',
-                zIndex: '0'
-            }
-        });
-
-        this.add(this.scrollInfo);
-    }
-
     function _handleScroll() {
         this.sync = new GenericSync(
             ['touch', 'scroll'],
@@ -69,12 +55,10 @@ define(function(require, exports, module) {
         );
 
         this.scrollRecieverSurface.pipe(this.sync);
-        this.scrollInfo.pipe(this.sync);
 
         this.sync.on('update', function(data) {
             // Invert delta so scrolling up is positive.
             this.worldScrollValue -= data.delta;
-            this.scrollInfo.setContent('Scroll Value: ' + this.worldScrollValue);
             this._eventOutput.emit('ScrollUpdated', {delta: -data.delta});
         }.bind(this));
 
@@ -114,7 +98,6 @@ define(function(require, exports, module) {
                         if (this.worldScrollValue > this._arrowData.breakpoints[this._arrowData.index]) {
                             var currentStep = Math.min(this._arrowData.step, this.worldScrollValue - this._arrowData.breakpoints[this._arrowData.index]); 
                             this.worldScrollValue -= currentStep;
-                            this.scrollInfo.setContent('Scroll Value: ' + this.worldScrollValue);
                             this._eventOutput.emit('ScrollUpdated', {delta: -currentStep});
                         } else {
                             Timer.clear(this._arrowData.interval);
@@ -141,7 +124,6 @@ define(function(require, exports, module) {
                         if (this.worldScrollValue < this._arrowData.breakpoints[this._arrowData.index]) {
                             var currentStep = Math.min(this._arrowData.step, this._arrowData.breakpoints[this._arrowData.index] - this.worldScrollValue);
                             this.worldScrollValue += currentStep; 
-                            this.scrollInfo.setContent('Scroll Value: ' + this.worldScrollValue);
                             this._eventOutput.emit('ScrollUpdated', {delta: currentStep});
                         } else {
                             Timer.clear(this._arrowData.interval);
