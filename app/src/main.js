@@ -67,7 +67,7 @@ define(function(require, exports, module) {
                 textAlign: 'center'
             },
             size: [840, 140],
-            position: ['25%', '50%'],
+            position: ['30%', '50%'],
             classes: ['z2']
         },
         'Slide One': {
