@@ -778,6 +778,67 @@ define(function(require, exports, module) {
         }
     ];
 
+    actorDescriptions = [];
+    actionDescriptions = [
+        {
+            actor: 'Scrollster',
+            start: 0,
+            stop: 1000,
+            type: 'moveTo',
+            properties: {
+                location: ['150%', '50%']
+            }
+        },
+        {
+            actor: 'Instructions',
+            start: 0,
+            stop: 1000,
+            type: 'opacity',
+            properties: {
+                finalOpacity: 0
+            }
+        },
+        {
+            actor: 'Action Labs Logo',
+            start: 500,
+            stop: 1000,
+            setBreak: true,
+            type: 'opacity',
+            properties: {}
+        },
+        {
+            actor: 'Action Labs Logo',
+            start: 1001,
+            stop: 2000,
+            type: 'position',
+            properties: {
+                scaleX: 0,
+                scaleY: 2.5
+            }
+        },
+        {
+            actor: 'Why Famous',
+            start: 1001,
+            stop: 1500,
+            type: 'moveTo',
+            properties: {
+                location: ['50%', '50%'],
+                curve: 'easeIn'
+            }
+        },
+        {
+            actor: 'Why Famous',
+            start: 1501,
+            stop: 2000,
+            setBreak: true,
+            type: 'moveTo',
+            properties: {
+                location: ['50%', '5%'],
+                curve: 'easeIn'
+            }
+        }
+    ];
+
     director.populateStage(stageView, actorDescriptions, actionDescriptions);
 
     mainContext.add(stageView);

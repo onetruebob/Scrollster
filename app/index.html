@@ -31,5 +31,56 @@
         <script type="text/javascript" src="lib/requirejs/require.js" data-main="src/requireConfig"></script>
         <!-- /process -->
     </head>
-    <body></body>
+    <body>
+        <actor data-actor-name="Scrollster" 
+               data-type="html"
+               data-height="100%"
+               data-width="100%"
+               data-position-x="50%"
+               data-position-y="50%"
+               data-position-z="1"
+               data-classes="z2"
+               data-properties="backfaceVisibility: visible, fontSize: 200%, textAlign: center, backgroundColor: white"
+               >
+            <div class="vertCenter">
+                <h1>SCROLLSTER</h1>
+                <p>Scroll-based animation component with the power of <a href="http://famo.us">famo.us</a></p>
+            </div>
+        </actor>
+        <actor data-actor-name="Instructions" 
+               data-type="html"
+               data-properties="backfaceVisibility: visible, fontSize: 100%, textAlign: center"
+               data-height="10%"
+               data-width="100%"
+               data-position-x="50%"
+               data-position-y="90%"
+               data-position-z="1"
+               data-classes="z2">
+                scroll or press the down key to continue
+        </actor>
+        <actor data-actor-name="Action Labs Logo" 
+               data-type="image" 
+               data-content="content/images/action-labs.png"
+               data-properties="backfaceVisibility: visible"
+               data-height="100"
+               data-width="200"
+               data-position-x="50%"
+               data-position-y="50%"
+               data-position-z="0"
+               data-opacity="0"
+               data-classes="z2"></actor>
+        <actor data-actor-name="Why Famous" 
+               data-type="html"
+               data-properties="backfaceVisibility: visible, fontSize: 200%, textAlign: center"
+               data-height="30%"
+               data-width="100%"
+               data-position-x="-150%"
+               data-position-y="50%"
+               data-position-z="0"
+               data-classes="z2">
+                <div class="vertCenter">
+                    <h1>WHY FAMOUS?</h1>
+                </div>
+        </actor>
+    </body>
 </html>
